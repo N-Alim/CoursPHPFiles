@@ -1,1 +1,2 @@
-Ecriture 2 dans fichier
+Ecriture dans fichier
+La suite du fichier
