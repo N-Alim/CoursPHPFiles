@@ -8,8 +8,8 @@ spl_autoload_register(function ($className)
 $filename = ".\\files\\corbeau.txt";
 $handle = fopen($filename, "rb");
 
-echo "Ligne 1 : " . fgets($handle) . "<br />";
-echo "Ligne 2 : " . fgets($handle) . "<br />";
+while (!feof($handle))
+    echo "Ligne : " . fgets($handle) . "<br />";
 
 
 fclose($handle);
