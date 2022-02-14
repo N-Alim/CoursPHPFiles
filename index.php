@@ -5,14 +5,13 @@ spl_autoload_register(function ($className)
     include "./classes/$className.php";
 });
 
-
-$file = new FileHandler(".\\files\\corbeau.txt", "r");
-
-var_dump($file->lecture());
-
 $filename = ".\\files\\corbeau.txt";
-$handle = fopen($filename, "r");
-$contents = fread($handle, filesize($filename));
+$handle = fopen($filename, "rb");
+
+echo "Ligne 1 : " . fgets($handle) . "<br />";
+echo "Ligne 2 : " . fgets($handle) . "<br />";
+
+
 fclose($handle);
 
 // var_dump($contents);
