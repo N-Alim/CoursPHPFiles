@@ -2,8 +2,14 @@
 
 class Log
 {
+    private static $path = "./logs/erreur.txt";
+
     public static function write($error)
     {
-        file_put_contents("./logs/erreur.txt", "Error");
+        $fichier = fopen(self::$path, "c+b");
+        
+        fwrite($fichier, "$error\n");
+        
+        fclose($fichier);
     }
 }
