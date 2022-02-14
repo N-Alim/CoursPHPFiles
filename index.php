@@ -5,14 +5,14 @@ spl_autoload_register(function ($className)
     include "./classes/$className.php";
 });
 
-file_put_contents("./files/toto.txt", "Ecriture dans fichier");
+$fichier = fopen("./files/ecriture.txt", "c+b");
+
+fwrite($fichier, "Une ligne de commentaire bidon\n");
+fwrite($fichier, "Une autre ligne");
 
 
-$contenu = file_get_contents("./files/toto.txt");
-$contenu .= "\nLa suite du fichier";
-file_put_contents("./files/toto.txt", $contenu);
+fclose($fichier);
 
-Log::write("Erreur");
 
 // fclose($handle);
 
