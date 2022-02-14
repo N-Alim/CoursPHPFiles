@@ -1,24 +1,18 @@
 <?php
 
-// $fichier1 = file_get_contents("./files/corbeau.txt"); // Un string
-$fichier1 = file("./files/corbeau.txt"); // Un tableau
+spl_autoload_register(function ($className)
+{
+    include "./classes/$className.php";
+});
 
-// echo "<pre>";
-// var_dump($fichier1);
-// echo "</pre>";
 
-$fable = "<blockquote>";
+$file = new FileHandler(".\\files\\corbeau.txt", "r");
 
-for ($cnt=0; $cnt < count($fichier1); $cnt++) 
-{ 
-    $fable .= "$fichier1[$cnt] <br />";   
-}
+var_dump($file->lecture());
 
-$fable .= "</blockquote>";
+$filename = ".\\files\\corbeau.txt";
+$handle = fopen($filename, "r");
+$contents = fread($handle, filesize($filename));
+fclose($handle);
 
-echo $fable;
-
-echo "<hr />";
-
-echo nl2br(file_get_contents("./files/corbeau.txt"));
-
+// var_dump($contents);
